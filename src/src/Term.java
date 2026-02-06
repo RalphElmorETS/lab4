@@ -4,6 +4,9 @@ public class Term {
     private int exponent;
 
     public Term(double coefficient, char variable, int exponent) {
+        if (coefficient == 0) {
+            throw new ZeroCoefficientException();
+        }
         this.coefficient = coefficient;
         this.variable = variable;
         this.exponent = exponent;
@@ -22,4 +25,17 @@ public class Term {
     }
 
 
+    @Override
+    public String toString(){
+
+        if (this.exponent == 0) {
+            return String.valueOf(this.coefficient);
+        }
+
+        if (this.exponent == 1) {
+            return this.coefficient + "" + this.variable;
+        }
+
+        return this.coefficient + "" + this.variable + "^" + this.exponent;
+    }
 }
