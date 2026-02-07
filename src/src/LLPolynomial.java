@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -83,6 +84,9 @@ public class LLPolynomial implements Polynomial{
             sb.append(term.toString());
         }
         return sb.toString();
+    }
+    public void sort(){
+        this.terms.sort(new TermComparator());
     }
 
 }
