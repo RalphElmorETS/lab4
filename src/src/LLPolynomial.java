@@ -69,4 +69,20 @@ public class LLPolynomial implements Polynomial{
     public List<Term> getAllTerms() {
         return this.terms;
     }
+
+    @Override
+    public String toString() {
+        if (terms.isEmpty()) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (Term term : this.terms) {
+            if (sb.length() > 0 && term.getCoefficient() > 0) {
+                sb.append("+");
+            }
+            sb.append(term.toString());
+        }
+        return sb.toString();
+    }
+
 }
